@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>result page</title>
+    <!-- Scripts -->
+    <script src="../resource/bootstrap/js/jquery-2.0.3.min.js"></script>
+    <!--<script src="../resource/firebase/firebase.js"></script> -->
+
+    <!--script src="jquery.min.js"></script-->
+    <script src="../resource/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../js/framework/common.js"></script>
+    <script src="../js/definitionPages.js"></script>
+    <script src="../js/framework/jiraApiCustom/connectionToJira.js"></script>
+    <script src="../js/framework/jiraApiCustom/pushDataToJira.js"></script>
+    <script src="../js/resultpage.js" async></script>
+    <!-- Cascading Style Sheets -->
+    <link href="../resource/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../resource/bootstrap/css/fileinput.css" rel="stylesheet" media="screen">
+    <link href="../resource/bootstrap/css/custom.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="gridSystemModalLabel">Result page</h4>
+        </div>
+          <div class="modal-body" style="width:600px; left:54px;">
+            <table class="table table-responsive" id="table-data-status">
+                <thead>
+                  <tr>
+                    <th style="text-align: center;">#</th>
+                    <th style="text-align: center;">USID</th>
+                    <th style="text-align: center;">TCID</th>
+                    <th style="text-align: center;">Summary</th>
+                    <th style="text-align: center;">Status</th>
+                  </tr>
+                </thead>
+                <tbody id="table-result-page"></tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id ="backButton" class="btn btn-default" data-dismiss="modal">Back</button>
+            <button type="button" id ="closeButton" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+  </body>
+</html>

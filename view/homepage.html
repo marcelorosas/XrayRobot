@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>homepage</title>
+     <!-- Scripts -->
+    <script src="../resource/bootstrap/js/jquery-2.0.3.min.js"></script>
+    <!--script src="jquery.min.js"></script-->
+    <script src="../resource/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../resource/bootstrap/js/fileinput.js"></script>
+    <script src="../resource/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../resource/firebase/firebase.js"></script>
+    <script src="../js/framework/jiraApiCustom/connectionToJira.js"></script>
+    <script src="../js/framework/jiraApiCustom/pushDataToJira.js"></script>
+
+    <script src="../resource/xlsxLib/xlsx.core.min.js"></script>
+    <script src="../resource/xlsxLib/xlsx.js"></script>
+    <script src="../resource/xlsxLib/shim.js"></script>
+    <script src="../resource/xlsxLib/ods.js"></script>
+    <script src="../resource/xlsxLib/jszip.js"></script>
+    <script src="../resource/underscore/underscore-min.js"></script>
+    <script src="../js/definitionPages.js"></script>
+    <script src="../js/homepage.js"></script>
+    <script src="../js/framework/common.js"></script>
+    <script src="../js/framework/excelReaderCustom/excelReaderCustom.js"></script>
+    
+    <style>
+      div.input-group-btn { left: 5px;}
+      td.field-label.col-xs-3.active { height: 5px;}
+    </style>
+    <!-- Cascading Style Sheets -->
+    <link href="../resource/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../resource/bootstrap/css/fileinput.css" rel="stylesheet" media="screen">
+    <link href="../resource/bootstrap/css/custom.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="gridSystemModalLabel">Home page</h4>
+        </div>
+          <div class="modal-body" style="width:600px;">
+            <h6>
+            <table class="table"> 
+              <tr>
+                <td class="field-label col-xs-3" style="font-size: 20px;text-align: center;">
+                  <label>File:<strong>*</strong></label>
+                </td>
+                <td class="col-md-12">
+                    <input id="inputFile" name="inputFile" type="file" class="file" multiple="false" data-show-upload="false" data-show-caption="true" data-show-preview="false">
+                    </input>
+                    <br/>
+                    <h6>
+                      <span id="formatError" class="alert alert-danger alert-dismissable fade in hidden" role="alert">
+                          <button class="close" onclick="hideAlert();return false;" type="button" style="top: -17px; right: 210px;"><span>x</span></button>
+                          <span class="glyphicon glyphicon-alert text-warning"></span> <strong>Invalid format</strong>
+                      </span>
+                    </h6> 
+                </td>
+              </tr>
+            </table>
+          </h6>
+          </div>
+          <div class="modal-footer" id="confirmationModal" style="width=768px;length=568px;">
+            <button type="button" class="btn btn-default" id="closeButton" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="submitBtn" value="Submit" data-toggle="modal" data-target=".submitFile">Submit</button>
+            <div class="modal fade submitFile modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" style="text-align:left;">Confirmation page</h4>
+                  </div>
+                  <div class="modal-body">
+                    <h2 style="text-align: center;">Features</h2>
+                    <p style="text-align: left;">Select the user stories that you wants to upload to Jira Globant site, the ticket will be assigned to the current user.</p>
+                    <table class="table table-responsive">
+                      <thead>
+                        <tr>
+                          <th style="text-align: center;">#</th>
+                          <th style="text-align: center;">Check/Uncheck</th>
+                          <th style="text-align: center;width: 20%;">USID</th>
+                          <th style="text-align: center;">Description</th>
+                        </tr>
+                      </thead>
+                      <tbody id="table-confirm-page"></tbody>
+                    </table>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" id ="closeButton" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" id ="confirmButton" class="btn btn-success" data-dismiss="modal">Confirm</button>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div><!-- /.modal-footer -->
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+  </body>
+</html>

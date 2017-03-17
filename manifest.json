@@ -1,0 +1,34 @@
+{
+  "name": "XRayRobot",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "Tool to help you to upload your tests scenario to Jira.",
+
+  "browser_action": {
+    "default_icon": {                    
+      "19": "resource/img/icon.png",          
+      "38": "resource/img/icon.png"          
+    },
+    "default_popup": "view/popup.html"
+  },
+
+  "web_accessible_resources": [
+    "resource/img/icon128.png"
+  ],
+
+  "icons": { 
+    "16": "resource/img/icon16.png",
+    "48": "resource/img/icon48.png",
+    "128": "resource/img/icon128.png" 
+  },
+
+  "content_security_policy":"script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'",
+  
+  "permissions": [
+    "tabs",
+    "storage",
+    "unlimitedStorage",
+    "https://localhost/", 
+    "https://*/*"
+  ]
+}

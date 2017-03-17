@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<title>Log In</title>
+    <meta charset="UTF-8">
+    <!-- Scripts -->
+    <script src="../resource/bootstrap/js/jquery-2.0.3.min.js"></script>
+    <script src="../resource/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Scripts Custom -->
+    <script src="../js/definitionPages.js"></script>
+    <script src="../js/framework/common.js"></script>
+    <script src="../js/framework/jiraApiCustom/connectionToJira.js"></script>
+    <script src="../js/framework/jiraApiCustom/loginToJira.js"></script>
+    <script src="../js/login.js"></script>
+    <!-- Cascading Style Sheets -->
+    <link href="../resource/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../resource/bootstrap/css/custom.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="gridSystemModalLabel">Log in on Jira Globant</h4>
+          </div>
+          <div class="modal-body">
+            <h6>
+              <table>
+                <tr>                
+                  <td>
+                    <div class="container">
+                        <div class="row">
+                          <div class='col-sm-2'>
+                              <p style="font-size: 20px;">Username: <strong>*</strong></p>
+                          </div>
+                          <div class='col-sm-3'>
+                              <div class="input-group">
+                                  <span class="input-group-addon">
+                                      <i class="glyphicon glyphicon-user text-ico"></i>
+                                  </span>
+                                  <input type="text" class="form-control" id="userName" name="userName" data-validate="required" style="width: 270px;"/>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="container">
+                      <div class="row">
+                        <div class='col-sm-2'>
+                            <p style="font-size: 20px;">Password: <strong>*</strong></p>
+                        </div>
+                        <div class='col-sm-3'>
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-pencil text-ico"></i>
+                              </span>
+                              <input type='password' class="form-control" id="userPassword" name="userPassword" data-validate="required" style="width: 270px;"/>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+          </h6>
+          </div>
+          <div class="modal-footer" id="confirmationModal" style="width=768px;length=568px;">
+            <button type="button" class="btn btn-default" id="closeButton" data-dismiss="modal">Close</button>
+            <!--button type="button" class="btn btn-success" id="logInBtn" value="Log In!">Log In</button-->
+            <button type="button" class="btn btn-success" id="logInBtn" value="Log In!" data-toggle="modal" data-target=".logIn">Log In</button>
+            <div class="modal fade logIn modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="confirmModal">
+                  <div class="modal-dialog" role="document" id="">
+                    <div class="modal-content" style="width: 610px;left: 56px;">
+                      <div class="modal-header">
+                        <a class="close" data-dismiss="modal">×</a>
+                        <h4 class="modal-title" id="gridSystemModalLabel" style="text-align:left;" >Login result</h4>
+                      </div>
+                      <div class="modal-body">
+                        <h6>
+                          <div id="loginResult"></div>
+                        </h6>
+                      </div>
+                      <div class="modal-footer" id='modalLoginResult'></div>
+                    </div><!-- /.modal-content -->
+                  </div><!-- /.modal-dialog -->
+                </div>
+              </div>
+            </div>
+          </div><!-- /.modal-footer -->
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+  </body>
+</html>
