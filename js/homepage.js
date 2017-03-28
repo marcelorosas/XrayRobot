@@ -91,15 +91,26 @@ function createTestCasesCheckingIfUsExists(testCases){
 	//Call firebase and check if the user story exists there
 	firebase.database().ref('/userStory/' + us).once('value').then(function(snapshot) {
 		var globantId = '';
+		var globantTestExecId = '';
 		if(snapshot.val() === null){
 			//The user story does not exist so I create it and get its globantId, then save it in firebase for future reference
 			globantId = createUsAsTestSetInGlbJira(us, projectKey);
-			firebase.database().ref('/userStory/' + us).set({ 'globantId' : globantId });
+			//Update test set status to 'In Progress'
+			updateIssueStatusInJira(globantId, 11);
+			
+			//The test execution does not exist so I create it and get its globanTestExecutionId, then save it in firebase for future reference
+			globantTestExecId = createUsAsTestExecutionInGlbJira(us, projectKey);
+			//Update test execution status to 'In Progress'
+			updateIssueStatusInJira(globantTestExecId, 11);
+			
+			firebase.database().ref('/userStory/' + us).set({ 'globantId' : globantId , 'globantTestExecutionId' : globantTestExecId });
 		}else{
 			globantId = snapshot.val().globantId;
+			globantTestExecId = snapshot.val().globantTestExecutionId;
 		}
 
 		localStorage.setItem("glbid", globantId);
+		localStorage.setItem("glbTestExecId", globantTestExecId);
 		localStorage.setItem("testCases", JSON.stringify(testCases.slice(1)));
 		openNewWindow(resultPagePath);
 	});
