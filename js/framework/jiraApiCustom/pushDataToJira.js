@@ -89,15 +89,14 @@ function pushTestCasesInJira(testCases, globantId){
 			url: base_url + '/rest/api/2/issue',
 			data: JSON.stringify(jsonTC),
 			success: function (data, status, xhr) { 
-				//console.log(data, status, xhr);
 				statusTC = status;
 				newTCIDKey = data.key;
 				//Add status to the sol
 				sol.push({USID:testCases[test].USID, TCID:testCases[test].TC, Summary:summaryTC , Status: statusTC, NewTCID: newTCIDKey, Sprint:testCases[test].Sprint});
 				//Assign the test cases to the respective sprint
 				//https://developer.atlassian.com/blog/2015/12/totw-using-the-JIRA-Software-REST-API/
-				//  IMPORTANT 857 is the project id here:
-			  	//  https://jira.corp.globant.com/rest/greenhopper/latest/sprintquery/857?includeHistoricSprints=true&includeFutureSprints=true
+				//  IMPORTANT [some important id that I will not show] is the project id here:
+			  	//  https://jira.corp.globant.com/rest/greenhopper/latest/sprintquery/[some important id that I will not show]?includeHistoricSprints=true&includeFutureSprints=true
 				
 
 				var sprints = [];
@@ -143,7 +142,8 @@ function pushTestCasesInJira(testCases, globantId){
 		// https://jira.corp.globant.com/rest/api/latest/issue/MDT002-XXX/transitions?expand=transitions.fields 
 		updateIssueStatusInJira(newTCIDKey, 11);
 
-	    // Updating the json for transition to change the issue status 'Ready For Review' to 'Review Completed'	-> 'Ready For Execution' status
+	    // Updating the json for transition to change the issue status 'Ready For Review' to 'Review Completed'
+	    //	-> 'Ready For Execution' status
 		// ID=31
 		updateIssueStatusInJira(newTCIDKey, 31);
 		
