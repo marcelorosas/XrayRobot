@@ -1,10 +1,9 @@
 
 function loginToJira(){
 
-  var base_url = "https://jira.corp.globant.com";
   $('#loginResult').html('');
 
-  getAjaxSetupConnection();
+  getAjaxSetupConnection('GET');
   
   var doLogin = $.get(
     

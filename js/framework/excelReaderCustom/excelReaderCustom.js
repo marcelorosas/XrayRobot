@@ -27,3 +27,14 @@ function to_json(workbook) {
 	});
 	return result;
 }
+
+function unicodeToChar(text) {
+   	return text.replace(/\\u[\dA-F]{4}/gi, 
+          function (match) {
+               return String.fromCharCode(parseInt(match.replace(/\\u/g, ''), 16));
+          });
+}
+
+function chunkString(str, length) {
+	return str.match(new RegExp('.{1,' + length + '}', 'g'));
+}
